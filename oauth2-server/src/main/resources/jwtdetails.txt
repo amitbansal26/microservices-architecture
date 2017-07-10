@@ -1,0 +1,5 @@
+generate a JWT token keystore
+
+keytool -genkeypair -alias jwtref -keyalg RSA -dname "CN=jwt, L=Mumbai, S=Mumbai, C=IN" -keypass amitKey -keystore jwtref.jks -storepass amitKey
+
+keytool -list -rfc --keystore jwtref.jks | openssl x509 -inform pem -pubkey
