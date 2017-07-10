@@ -1,0 +1,14 @@
+---
+applications:
+- name: sample-api-gateway
+  host: sample-api-gateway
+  memory: 1024M
+  random-route: true
+  path: target/sample-api-gateway-0.0.1-SNAPSHOT.jar
+  services:
+    - eureka-cb
+    - config-server
+    
+  env:
+    SPRING_PROFILES_ACTIVE: cloud
+    CF_TARGET: https://api.run.pivotal.io
