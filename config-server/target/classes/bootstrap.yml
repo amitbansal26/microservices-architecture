@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: config-service-hub
+---
+encrypt:
+  keyStore:
+    location: classpath:/server.jks
+    password: letmein
+    alias: mytestkey
+    secret: changeme
+---
+spring:
+  profiles:
+    active: vault, git
+  cloud:
+    vault:
+      config:
+        order: 1
+      host: 10.119.69.90
+      port: 8200
+      token: 69b5ag3ec6cb2y2zc702
+      ssl:
+        cert-auth-path: classpath:/vault.cer
+    config:
+      server:
+        git:
+          order: 2
+          uri: https://gitlab.com/test/vapprove-config.git
+          username: '{cipher}AQAXEKcK4th2MPZJR6I3DnI9fKbZGzgwyKwKAxNWLQtGz8hOrDAYWjWqEyMRrL4p/d6gaoFO9wTJzr37x1tA0AtElWRpaUu4YeD9BYmv/6LHLDiG7dAvquFrdaPjSIhpjD5BQPpuC0IBGlSeF0HFrc5GvolEXy9yg+42Dpa+M8xfmrESpWiniOuF5qRCyxJSVWWrp7Y1NL8qJdV25u0Ixm7ni3BmiXnHzseA38cSfqbNyaB3U5tw3VJAQbeH7i2VngNKJptUNAwkykfZrWV8wkJqbWx51b6fcmSfEGyZKDbxnutJ8u0lftAw/tJWst6HTkRVG9fAMs46G6ZaHaHVJpvswI7rQ/KXnK51DQyjg8uDevJhnAvV8VDGErU6d6SFvQUVCL2ZhZ9T8vG4mzo1HGhl'
+          password: '{cipher}AQCN1tbWhi/XKwR+KKYdlVek2UClxLXxqoj8rG7UG4syodTWebfyhT6fNh1szEXobuOEH75a8OAd5Z6Jpm7GTYnJFF278F33GUUjy5+Qv+LnpbV1ajhjvel3CJVQl9/CWVXwZ0J19ihSCLmWQpJGOjiKiN0/geyKQjyle6EpJdrGFhRiHa6bTnF57o3RPjBfZosJcLJYpYGni47phpvLk0FfhD2/tE8Ex0xznUqRasMRWOLdqo6SDrvBl8fbUaRd6gVnIsdBr96ppJ5oXOu519/lFWBKgtpagzC2OIkskYSuMJKxXHZmJxWBwkEgt8pRGpdPKoMMNkTxbAnkNNo1xPfoWv2XoiDMYOtJ5Uz8IWZxM6ntUyc2jxxAMDBHoJ7m/L0='
+          

@@ -1,0 +1,16 @@
+server:
+  port: 8888
+---
+eureka:
+  instance:
+    hostname: ${vcap.application.uris[0]:localhost}
+    non-secure-port-enabled: false
+    secure-port-enabled: true
+    status-page-url: https://${eureka.instance.hostName}:${server.port}/info
+    health-check-url-path: https://${eureka.instance.hostName}:${server.port}/health
+    home-page-url: https://${eureka.instance.hostName}:${server.port}/
+    secure-virtual-host-name: https://${vcap.application.uris[0]:localhost:8761}
+  
+  client:
+    service-url:
+      defaultZone: ${vcap.services.eureka-cb.credentials.url:http://localhost:8761/eureka/}
