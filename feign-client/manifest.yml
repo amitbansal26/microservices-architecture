@@ -1,0 +1,14 @@
+---
+applications:
+- name: feignClient
+  host: feignClient
+  memory: 1024M
+  random-route: true
+  path: target/feignClient-0.0.1-SNAPSHOT.jar
+  services:
+    - eureka-cb
+    
+  env:
+    SPRING_PROFILES_ACTIVE: cloud
+    CF_TARGET: https://api.sys.wdc-np.itcna.vmware.com
+    TRUST_CERTS: api.sys.wdc-np.itcna.vmware.com,10.119.69.84:8200
