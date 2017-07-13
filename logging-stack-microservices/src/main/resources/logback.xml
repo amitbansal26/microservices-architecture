@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="false">
+
+    <include resource="org/springframework/boot/logging/logback/base.xml"/>
+
+    <appender name="stash" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
+        <destination>logstash:5001</destination>
+
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder">
+            <customFields>{"service_name":"amit-logger"}</customFields>
+            <fieldNames>
+                <message>log_message</message>
+            </fieldNames>
+        </encoder>
+        <keepAliveDuration>5 minutes</keepAliveDuration>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="stash"/>
+    </root>
+
+    <logger name="org.springframework" level="INFO"/>
+    <logger name="com.ref.arch.elk.logging" level="DEBUG"/>
+</configuration> 
