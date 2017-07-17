@@ -10,5 +10,5 @@ applications:
   - test-rabbit
   env:
     SPRING_PROFILES_ACTIVE: cloud
-    CF_TARGET: https://api.sys.wdc-np.itcna.vmware.com
-    TRUST_CERTS: api.sys.wdc-np.itcna.vmware.com,10.119.69.84:8200
+    CF_TARGET: https://cahnge-it
+    TRUST_CERTS: achangeiy.com,10.119.69.84:8200
