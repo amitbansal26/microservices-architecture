@@ -1,3 +1,7 @@
 spring:
   application:
-    name: assesment-api-gateway
+    name: api-gateway
+
+security:
+  basic:
+    enabled: false

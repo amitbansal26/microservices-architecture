@@ -2,27 +2,16 @@ info:
     component: Assesment Api Gateway
 zuul:
   routes:
-    assesment-data-service:
-       path: /assesment-data-service/**
-       service-id: assesment-data-service
-       strip-prefix: false
+    dotnet-api:
+       path: /dotnet-api/**
+       service-id: dotnet-api
     
-    opportunity-data-service:
-       path: /opportunity-data-service/**
-       service-id: opportunity-data-service
-       strip-prefix: false
-
-eureka:
-  instance:
-    hostname: ${vcap.application.uris[0]:localhost}
-    non-secure-port-enabled: false
-    secure-port-enabled: true
-    status-page-url: https://${eureka.instance.hostName}:${server.port}/info
-    health-check-url-path: https://${eureka.instance.hostName}:${server.port}/health
-    home-page-url: https://${eureka.instance.hostName}:${server.port}/
-    secure-virtual-host-name: https://${vcap.application.uris[0]:localhost:8761}
-  
-  client:
-    service-url:
-      defaultZone: ${vcap.services.eureka-cb.credentials.url:http://localhost:8761/eureka/}
+---
+hystrix:
+  command:
+    default:
+      execution:  
+        timeout:
+          enabled: false      
+      
        

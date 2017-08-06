@@ -1,12 +1,12 @@
 ---
 applications:
-- name: sample-api-gateway
+- name: api-gateway
   host: sample-api-gateway
   memory: 1024M
   random-route: true
   path: target/sample-api-gateway-0.0.1-SNAPSHOT.jar
   services:
-    - eureka-cb
+    - test-registry
     - config-server
     
   env:
